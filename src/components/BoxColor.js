@@ -1,8 +1,23 @@
 const BoxColor = (props) => {
+    function valueToHex(c) {
+        var hex = c.toString(16);
+        return hex
+    }
+
+    function rgbToHex() {
+        return(valueToHex(props.r) + valueToHex(props.g) + valueToHex(props.b));
+    }
+
+    const divStyle = {
+        backgroundColor: 'rgb(' + props.r + ',' + props.g + ',' + props.b + ')',
+    };
+
     return(
-        <div className="boxColor">
-            <div style={{backgroundColor: "rgb({props.r}, 10 , 100)"}}>
-                oi
+        <div className="boxColorText" style={divStyle}>
+            <div>
+                rgb({props.r},{props.g},{props.b})
+                <br/>
+                #{rgbToHex()}
             </div>
         </div>
     )
